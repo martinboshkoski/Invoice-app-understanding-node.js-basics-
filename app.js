@@ -118,9 +118,35 @@ app.get('/invoice_amend/:id', function(req, res){
 })
 
 app.post('/invoice_amend/amendInvoice', function(req, res){
-    console.log(req.body)
 
+    //Getting the inputs and the concrete amended invoice ID
+    const invoicePayee = req.body.invoicePayee;
+    const invoicePayeeAddress = req.body.invoicePayeeAddress;
+    const invoiceDate = req.body.invoiceDate;
+    const invoiceItem = req.body.invoiceItem;
+    const invoiceAmount = req.body.invoiceAmount;
+    const theAmendedInvoiceId = req.body.invoiceId;
+    console.log(invoicePayee, invoicePayeeAddress, invoiceDate, invoiceItem, invoiceAmount, theAmendedInvoiceId)
+
+    //getting the invoices array
+    const filePath = path.join(__dirname, 'data', 'invoices.json');
+    const fileData = fs.readFileSync(filePath);
+    const existingInvoices = JSON.parse(fileData);
+
+    //identifying which invoice from the array, has identical ID with the ID of the invoice that the user wants to change 
+
+    for (const invoice of existingInvoices) {
+        if (invoice.id === theAmendedInvoiceId) {
+            invoice.invoicePayee = invoicePayee;
+            invoice.invoicePayeeAddress = invoicePayeeAddress;
+            invoice.invoiceDate = invoiceDate;
+            invoice.invoiceItem = invoiceItem;
+            invoice.invoiceAmount = invoiceAmount;
+        fs.writeFileSync(filePath, JSON.stringify(existingInvoices))
+
+        return res.redirect('/invoices')
+        }
+    }
 })
-
 
 app.listen(3000)

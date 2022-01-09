@@ -87,3 +87,6 @@ article button {
     padding: 2rem;
 }
 
+.invisible{
+    display: none;
+}
