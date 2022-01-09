@@ -118,7 +118,6 @@ app.get('/invoice_amend/:id', function(req, res){
 })
 
 app.post('/invoice_amend/amendInvoice', function(req, res){
-
     //Getting the inputs and the concrete amended invoice ID
     const invoicePayee = req.body.invoicePayee;
     const invoicePayeeAddress = req.body.invoicePayeeAddress;
@@ -134,7 +133,6 @@ app.post('/invoice_amend/amendInvoice', function(req, res){
     const existingInvoices = JSON.parse(fileData);
 
     //identifying which invoice from the array, has identical ID with the ID of the invoice that the user wants to change 
-
     for (const invoice of existingInvoices) {
         if (invoice.id === theAmendedInvoiceId) {
             invoice.invoicePayee = invoicePayee;
@@ -143,10 +141,20 @@ app.post('/invoice_amend/amendInvoice', function(req, res){
             invoice.invoiceItem = invoiceItem;
             invoice.invoiceAmount = invoiceAmount;
         fs.writeFileSync(filePath, JSON.stringify(existingInvoices))
-
-        return res.redirect('/invoices')
+    return res.redirect('/invoices')
         }
     }
-})
+    //Reducing the amount from the amounts.json
 
+    // const filePathAmounts = path.join(__dirname, 'data', 'amounts.json');
+    // const fileDataAmounts = fs.readFileSync(filePathAmounts);
+    // const existingInvoicesAmounts = JSON.parse(fileDataAmounts);
+
+    // for (amount of existingInvoicesAmounts) {
+    //     if (amount === amountBefore){
+    //         console.log('identified amount')
+    //     }
+    // }
+    // fs.writeFileSync(filePathAmounts, JSON.stringify(existingInvoicesAmounts))
+})
 app.listen(3000)
