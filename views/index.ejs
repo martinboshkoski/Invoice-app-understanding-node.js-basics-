@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/index.js" defer></script>
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>The Invoice App</title>
+</head>
+<body>
+    <%- include('includes/header') %>
+
+    <h1>Апликација за внесување на фактури</h1>
+<section class="inputInvoice">
+    <p> Внесете ги Вашите фактури со наведување на податоците за фактурата</p>
+    <form action="stored-invoices" method="POST">
+        <input type="text" name="invoicePayee" placeholder="Должник по фактура"> 
+        <input type="text" name="invoicePayeeAddress" placeholder="Адреса на должник по фактура"> 
+        <input type="date" name="invoiceDate" placeholder="Датум на фактура" id="invoiceDate"> 
+        <input type="text" name="invoiceItem" placeholder="Производ или услуга за фактура"> 
+        <input type="number" name="invoiceAmount" placeholder="Износ на фактура"> 
+        <button>Внеси</button>
+     </form>
+</section>
+
+<section class="inputInvoice">
+    <h2>Вкупен број на издадени фактури: <%=numberOfInvoices%></h2>
+</section>
+</body>
+</html>
+

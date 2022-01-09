@@ -1,0 +1,89 @@
+body {
+    background-color: rgb(221, 209, 209);
+    color: rgb(47, 75, 112);
+    text-align: center;
+}
+
+p {
+    margin: 0rem;
+}
+
+header {
+    text-align: left;
+    background-color: #6a5acd;
+    color: white;
+    display: grid;
+    grid-template-columns: 13fr 1fr ;
+}
+
+header a {
+    padding-left: 10rem;
+}
+
+header p {
+    padding: 2rem;
+}
+nav p {
+    padding: 0;
+    margin: auto;
+}
+
+a {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.a-tag {
+    background-color: rgb(34, 34, 97);
+    color: white;
+    border-radius: 5px;
+    font-family: sans-serif;
+    padding: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.a-tag:hover {
+    background-color:  white;
+    color:  rgb(34, 34, 97);
+}
+nav {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    margin: 0 4rem;
+    text-align: right
+}
+
+.invSection {
+    text-align: left;
+}
+
+img {
+    width: 20%;
+    height: 100%;
+}
+
+article {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr 1fr 1fr;
+    grid-gap: 2rem;
+    text-align: left;
+    padding-left: 2rem;
+}
+
+h2 {
+    margin-top: 0;
+}
+article button {
+    margin: 0.1rem;
+    width: 70%;
+    height: 70%;
+}
+
+.inputInvoice {
+    text-align: left;
+    padding: 2rem;
+}
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styleInvoice.css">
+    <title>THe served site</title>
+</head>
+<body>
+    <p> <a href="/invoices">Фактури</a></p>
+
+<section class="invoiceParties">
+    <h3>Доверител</h5>
+    <h5>Адвокат Мартин Бошкоски</h5>
+    <h5>ул. Македонија бр. 11/1-5,</h5>
+    <h5>Скопје</h5>
+
+</section>
+
+<section class="invoiceParties">
+    <h3>Должник</h3>
+    <h5><%= invoice.invoicePayee %></h3>
+    <h5><%= invoice.invoicePayeeAddress %></h4>
+    <h5>Grad</h5>
+</section>
+
+<section class="invoiceParties">
+    <h2>Фактура број: <%= invoice.number %> </h2>
+    <h4>Датум на фактура: <%= invoice.invoiceDate %> година</h4>
+</section>
+<section id="invoiceDescription">
+    <p>Производ / услуга: <%= invoice.invoiceItem %></p>
+</section>
+<section id="invoiceAmount">
+    <h3>ВКУПНО: <%= invoice.invoiceAmount %>,00 денари.</h3>
+</section>
+
+<section id="paymentDetails">
+    <h4>Рок за исплата: 8 (осум) дена од денот на приемот </h4>
+
+    <p>Да се исплати во денари, на следната сметка:</p>
+    <p>Адвокат Мартин Бошкоски</p>
+    <p>ЕДБ: 5080017506791</p>
+    <p>Сметка бр. 200003147954766</p>
+    <p>Стопанска Банка АД Скопје </p>
+</section>
+
+ 
+<section id="signature">
+    <p>__________________ </p>
+    <p>Мартин Бошкоски </p>
+    <p>Овластено лице за  </p>
+    <p>издавање на фактури </p>
+</section>
+ 
+
+</body>
+</html>

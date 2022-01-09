@@ -1,0 +1,65 @@
+body {
+    background-color: white;
+    font-family: 'Arial Narrow', Arial, sans-serif;
+    border: black solid 1px;
+}
+
+h2 {
+    color: black;
+    padding: 0.5rem;
+
+}
+
+h3, h4{
+    margin: 0;
+}
+
+h5 {
+    margin: 0;
+    font-weight: 500;
+    font-size: large;
+}
+p{
+    margin: 0;
+}
+
+.invoiceParties {
+    padding: 1rem;
+}
+
+.invoiceDetails {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5rem;
+    text-align: right;
+    border: black solid 1px;
+    width: 90%;
+    margin: auto;
+
+}
+
+#invoiceDescription{
+text-align: left;
+padding: 2rem;
+border: 1px solid black;
+width: 90%;
+margin: auto;
+}
+#invoiceAmount{
+    text-align: right;
+    margin: auto;
+    width: 90%;
+
+}
+#paymentDetails {
+    margin-left: 2rem;
+    padding-top: 1rem;
+}
+
+#signature {
+    text-align: right;
+    padding: 3rem;
+    padding-top: 15rem;
+
+}

@@ -1,0 +1,11 @@
+<hr>
+<article>
+      <h3> - Фактура <%= invoice.number %></h3>
+        <p>Должник по фактура: <%= invoice.invoicePayee %></p>
+        <p>Датум на фактура: <%= invoice.invoiceDate %></p>
+        <p>Износ на фактура: <%= invoice.invoiceAmount %>,00 денари</p>
+        <a class="a-tag" href="/invoices/<%=invoice.id%>">Види фактура</a>
+        <a class="a-tag" href="/invoice_amend/<%=invoice.id%>">Промени фактура</a>
+
+</article>
+  
