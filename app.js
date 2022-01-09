@@ -79,26 +79,6 @@ app.get('/invoices/:id', function(req, res){
     }
 })
 
-// app.get('/amendInvoice:id', function(req, res){
-//     res.send('wors')
-// })
-
-// app.get('/amendedInvoice/:id', function(req, res){
-//     const invoiceId = req.params.id;
-
-//     const filePath = path.join(__dirname, 'data', 'invoices.json');
-//     const fileData = fs.readFileSync(filePath);
-//     const existingInvoices = JSON.parse(fileData);
-
-//     for (const invoice of existingInvoices) {
-//         if (invoice.id === invoiceId) {
-//             // res.redirect('/invoices')
-//         }
-//     }
-// })
-
-
-
 // to delete an invoice from the list (NOT WORKING NOW): 
 app.post('/delete-invoice', function(req, res){
     const filePath = path.join(__dirname, 'data', 'invoices.json');
@@ -108,7 +88,6 @@ app.post('/delete-invoice', function(req, res){
     const filePathAmounts = path.join(__dirname, 'data', 'amounts.json');
     const fileDataAmounts = fs.readFileSync(filePathAmounts);
     const existingInvoicesAmounts = JSON.parse(fileDataAmounts);
-
 
     existingInvoices.pop()
     existingInvoicesAmounts.pop()
@@ -122,5 +101,26 @@ app.post('/delete-invoice', function(req, res){
 app.get('/contact', function(req, res){
     res.render('contact');
 })
+
+//Amending the invoices
+//Page to amend the invoices, providing the forms
+app.get('/invoice_amend/:id', function(req, res){
+    const invoiceId = req.params.id;
+    const filePath = path.join(__dirname, 'data', 'invoices.json');
+    const fileData = fs.readFileSync(filePath);
+    const existingInvoices = JSON.parse(fileData);
+
+    for (const invoice of existingInvoices) {
+        if (invoice.id === invoiceId) {
+            return res.render('invoice_amend', {invoice: invoice})
+        }
+    }
+})
+
+app.post('/invoice_amend/amendInvoice', function(req, res){
+    console.log(req.body)
+
+})
+
 
 app.listen(3000)

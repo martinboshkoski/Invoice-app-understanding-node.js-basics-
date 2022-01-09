@@ -11,17 +11,17 @@
 <body>
     <%- include('includes/header') %>
 
-    <h1>Промени фактура</h1>
+    <h1>Промени фактура број: <%= invoice.number%> </h1>
 <section class="inputInvoice">
-    <form action="amendInvoice" method="POST">
+    <form action="amendInvoice" method="POST" >
         <p>Промени должник <%= invoice.invoicePayee %></p>
-        <input type="text" name="invoicePayee" placeholder="Должник по фактура"> 
+        <input type="text" name="invoicePayee" placeholder="Должник по фактура" id="<%= invoice.id %>"> 
         <button>Внеси</button>
      </form>
 
-     <form action="amendInvoice" method="POST">
+     <form action="amendInvoice" method="POST" value="<%= invoice.id %>">
         <p>Промени адреса на должник: <%= invoice.invoicePayeeAddress %> </p>
-        <input type="text" name="invoicePayeeAddress" placeholder="Адреса на должник по фактура"> 
+        <input type="text" name="invoicePayeeAddress" placeholder="Адреса на должник по фактура" > 
         <button>Внеси</button>
      </form>
 
